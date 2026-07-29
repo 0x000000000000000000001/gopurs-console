@@ -48,7 +48,10 @@ func TimeEnd(s string) func() interface{} {
 	return Log(s)
 }
 
-func Clear() {
+func Clear() func() interface{} {
+	return func() interface{} {
+		return nil
+	}
 }
 
 func Group(s string) func() interface{} {
@@ -59,6 +62,8 @@ func GroupCollapsed(s string) func() interface{} {
 	return Log(s)
 }
 
-func GroupEnd() {
-	Clear()
+func GroupEnd() func() interface{} {
+	return func() interface{} {
+		return nil
+	}
 }
