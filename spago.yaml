@@ -1,5 +1,1 @@
-package:
-  name: console
-  dependencies:
-    - effect
-    - prelude
+spago.go.yaml
