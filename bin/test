@@ -23,7 +23,16 @@ if [ -d "output/Test.Main" ]; then
     go build -o go_test_app ./Test.Main/main
     cd ..
     
-    GOGC=1000 ./output/go_test_app
+    echo "=== Running tests ==="
+    GOGC=1000 ./output/go_test_app > output/actual_output.txt
+    
+    if cmp -s output/actual_output.txt test/expected_output.txt; then
+        echo "Test passed! Output matches expected_output.txt"
+    else
+        echo "Test failed! Output differs from expected_output.txt:"
+        diff -u test/expected_output.txt output/actual_output.txt
+        exit 1
+    fi
 else
     echo "No output/Test.Main/main found."
     exit 1
