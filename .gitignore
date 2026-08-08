@@ -7,3 +7,6 @@
 /output/
 package-lock.json
 test/actual_output.txt
+.DS_Store
+.spago
+output
