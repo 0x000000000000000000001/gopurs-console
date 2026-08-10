@@ -10,3 +10,4 @@ test/actual_output.txt
 .DS_Store
 .spago
 output
+.psc-ide-port
