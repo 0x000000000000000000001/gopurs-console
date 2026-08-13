@@ -42,15 +42,18 @@ func Debug(s string, _ interface{}) interface{} {
 }
 
 func Time(s string, _ interface{}) interface{} {
-	return Log(s, nil)
+	fmt.Printf("%s%s\n", getIndent(), s)
+	return nil
 }
 
 func TimeLog(s string, _ interface{}) interface{} {
-	return Log(s, nil)
+	fmt.Printf("%s%s\n", getIndent(), s)
+	return nil
 }
 
 func TimeEnd(s string, _ interface{}) interface{} {
-	return Log(s, nil)
+	fmt.Printf("%s%s\n", getIndent(), s)
+	return nil
 }
 
 func Clear(_ interface{}) interface{} {
@@ -58,13 +61,13 @@ func Clear(_ interface{}) interface{} {
 }
 
 func Group(s string, _ interface{}) interface{} {
-	Log(s, nil)
+	fmt.Printf("%s%s\n", getIndent(), s)
 	atomic.AddInt32(&indentation, 1)
 	return nil
 }
 
 func GroupCollapsed(s string, _ interface{}) interface{} {
-	Log(s, nil)
+	fmt.Printf("%s%s\n", getIndent(), s)
 	atomic.AddInt32(&indentation, 1)
 	return nil
 }
