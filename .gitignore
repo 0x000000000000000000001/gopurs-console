@@ -4,10 +4,12 @@
 !/.github/
 /bower_components/
 /node_modules/
-/output/
+output/
+output.bak/
 package-lock.json
 test/actual_output.txt
 .DS_Store
 .spago
 output
+output.bak
 .psc-ide-port
