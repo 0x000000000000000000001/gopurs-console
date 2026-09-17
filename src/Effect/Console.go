@@ -2,6 +2,7 @@ package Effect_Console
 
 import (
 	"fmt"
+	"os"
 	"strings"
 	"sync/atomic"
 )
@@ -27,7 +28,7 @@ func Warn(s string, _ interface{}) interface{} {
 }
 
 func Error(s string, _ interface{}) interface{} {
-	fmt.Printf("%s%s\n", getIndent(), s)
+	fmt.Fprintf(os.Stderr, "%s%s\n", getIndent(), s)
 	return nil
 }
 
